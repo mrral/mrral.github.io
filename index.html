@@ -1,223 +1,280 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<title>김앵부</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    line-height: 1.6;
-  }
-  h1, h2 {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 4px;
-  }
-  #toc {
-    background: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    width: 300px;
-    margin-bottom: 30px;
-  }
-  #toc ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  #toc ul li {
-    margin: 5px 0;
-  }
-  #toc a {
-    color: #0645ad;
-    text-decoration: none;
-  }
-  #toc a:hover {
-    text-decoration: underline;
-  }
-  a, a:visited, a:hover, a:active {
-    color: #0645ad;
-    text-decoration: none;
-  }
+  <meta charset="UTF-8" />
+  <title>김엔프 위키</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f0f0f0;
+    }
 
-  /* 주석 번호 스타일 */
-  sup {
-    font-size: 0.7em;
-    color: #0645ad;
-    cursor: pointer;
-    position: relative;
-  }
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
 
-  /* 툴팁 박스 */
-  .footnote-tooltip {
-    position: absolute;
-    bottom: 125%; /* 위로 띄우기 */
-    left: 50%;
-    transform: translateX(-50%);
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 12px 16px;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    font-size: 1.2em;
-    line-height: 1.5;
-    border-radius: 6px;
-    display: none;
-    z-index: 1000;
-    pointer-events: auto;
-  }
+    /* 상단 박스 */
+    header {
+      background-color: #ffb6c1;
+      text-align: center;
+    }
 
-  /* 삼각형 꼬리 */
-  .footnote-tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px;
-    border-style: solid;
-    border-color: #ddd transparent transparent transparent;
-  }
+    header h1 {
+      margin: 0;
+      color: white;
+      font-size: 2.2em;
+    }
 
-  /* 마우스 오버 시 툴팁 보이기 */
-  sup:hover .footnote-tooltip,
-  sup:focus .footnote-tooltip {
-    display: block;
-  }
+    p {
+      font-size: 1em;
+      color: #333;
+    }
 
-  /* 툴팁 안 링크 제거 */
-  .footnote-tooltip a {
-    color: inherit;
-    text-decoration: none;
-    pointer-events: none;
-  }
-  .infobox {
-    width: 250px;
-    float: right;
-    margin: 0 0 20px 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    font-size: 0.95em;
-    line-height: 1.5;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
+    a {
+      color: #d63384;
+      text-decoration: none;
+    }
 
-  .profile-img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
+    a:hover {
+      text-decoration: underline;
+    }
 
-</style>
+    h1, h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+
+    #toc {
+      background: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ddd;
+      width: 300px;
+      margin-bottom: 40px;
+    }
+
+    #toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #toc ul li {
+      margin: 5px 0;
+    }
+
+    #toc a {
+      color: #0645ad;
+      text-decoration: none;
+    }
+
+    #toc a:hover {
+      text-decoration: underline;
+    }
+    #toc {
+      color: #d63384;
+    }
+
+    #toc a {
+      color: #d63384;
+      text-decoration: none;
+    }
+
+    #toc a:hover {
+      text-decoration: underline;
+    }
+
+    sup {
+      font-size: 0.7em;
+      color: #d63384;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .footnote-tooltip {
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 12px 16px;
+      width: 280px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+      line-height: 1.5;
+      border-radius: 6px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .footnote-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: #ddd transparent transparent transparent;
+    }
+
+    sup:hover .footnote-tooltip {
+      display: block;
+    }
+
+    .infobox {
+      width: 250px;
+      float: right;
+      margin: 0 0 20px 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f5f5f5;
+      font-size: 0.95em;
+      line-height: 1.5;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .infobox {
+        float: none;
+        margin: 0 auto 20px auto;
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<h1>김엔프</h1>
+  <header>
+    <h1>엔프 위키</h1>
+  </header>
 
-<div class="infobox">
-  <img src="https://drive.google.com/file/d/1qN9XET1aS22lpVV25wWSKXwkxTyZeXR6/view?usp=sharing" alt="홍길동 사진" class="profile-img">
-  <h3>김엔프</h3>
-  <p><strong>출생:</strong> 1998년 1월 14일</p>
-  <p><strong>직업:</strong> 방송인, 유튜버</p>
-  <p><strong>활동:</strong> 2019년 ~ 현재</p>
-  <p><strong>플랫폼:</strong> 치지직, 유튜브</p>
-</div>
+ <div class="content-wrapper">
+    <h1>김엔프</h1>
 
+    <div class="infobox">
+      <img src="https://yt3.googleusercontent.com/ytc/AIdro_n2DABKeanj7P34KXXFDVkOv7oJeHrn72ksEUZUcvNKwg=s900-c-k-c0x00ffffff-no-rj" alt="김엔프 사진" class="profile-img">
+      <h3>김엔프</h3>
+      <p><strong>출생:</strong> 1998년 1월 14일</p>
+      <p><strong>직업:</strong> 방송인, 유튜버</p>
+      <p><strong>활동:</strong> 2019년 ~ 현재</p>
+      <p><strong>플랫폼:</strong> <a href="https://chzzk.naver.com/1de49b3827b563cd011910ff496ddf24" target="_blank" rel="noopener noreferrer"><strong>치지직</strong></a>, <a href="https://www.youtube.com/channel/UCEChaYoFUgPjKBAMwuEpXKg" target="_blank" rel="noopener noreferrer"><strong>유튜브</strong></a>, <a href="https://cafe.naver.com/enff/" target="_blank" rel="noopener noreferrer"><strong>네이버 카페</strong></a>
+    </div>
 
-<div id="toc">
-  <strong>목차</strong>
-  <h2 id="list"></h2>
-  <ul>
-    <li><a href="#intro">1. 개요</a></li>
-    <li><a href="#features">2. 특징</a></li>
-    <li><a href="#meme">3. 밈</a></li>
-    <li><a href="#history">4. 방송 역사</a></li>
-    <li><a href="#controversy">5. 논란 및 사건사고</a></li>
-    <li><a href="#ps">6. 여담</a></li>
-  </ul>
-</div>
+  <div id="toc">
+    <strong>목차</strong>
+    <h2 id="list"></h2>
+    <ul>
+      <li><a href="#intro">1. 개요</a></li>
+      <li><a href="#features">2. 특징</a></li>
+      <li><a href="#meme">3. 밈</a></li>
+      <li><a href="#history">4. 방송 역사</a></li>
+      <li><a href="#controversy">5. 논란 및 사건사고</a></li>
+      <li><a href="#ps">6. 여담</a></li>
+    </ul>
+  </div>
 
-<h2 id="intro"><a class="link" href="#list">1.</a> 개요</h2>
-<p>대한민국의 인터넷 방송인.</p>
-<p>주로 치지직에서 활동하며, 유튜브에서도 활동한다. 유튜브에는 주로 본인이 방송시간에 플레이한 게임들을 올리거나 방송 중 재미있었던 부분을 적절히 편집하여 업로드 하고 있다.</p>
+  <h2 id="intro"><a class="link" href="#list">1.</a> 개요</h2>
+  <p>대한민국의 인터넷 방송인.</p>
+  <p>주로 치지직에서 활동하며, 유튜브에서도 활동한다. 유튜브에는 주로 본인이 방송시간에 플레이한 게임들을 올리거나 방송 중 재미있었던 부분을 적절히 편집하여 업로드 하고 있다.</p>
 
-<h2 id="features"><a class="link" href="#list">2.</a> 특징</h2>
-<p>방송의 메인 컨텐츠는 소통 방송과 게임 방송이다. 하지만 본인의 기분에 따라(...) 이것저것 가리지 않고 다 하는 편이다.</p>
-<p>토크의 비중이 높은 만큼 그날 그날 주제도 다양한 편이나, 따로 본인이 이야기의 주제를 정해두고 주도하진 않고 시청자와 대화의 흐름에 따라 자연스럽게 흘러가는 편이다.</p>
-<p>게임은 정해놓고 하기도 하지만 게임 역시 본인의 기분에 따라 이것저것 해보는 식이며 주로 플레이 하는 것은 젤다의 전설이다
-  <sup tabindex="0" onclick="scrollToFootnote(1)">
-    [1]
-    <span class="footnote-tooltip">
+  <h2 id="features"><a class="link" href="#list">2.</a> 특징</h2>
+  <p>방송의 메인 컨텐츠는 소통 방송과 게임 방송이다. 하지만 본인의 기분에 따라(...) 이것저것 가리지 않고 다 하는 편이다.</p>
+  <p>토크의 비중이 높은 만큼 그날 그날 주제도 다양한 편이나, 따로 본인이 이야기의 주제를 정해두고 주도하진 않고 시청자와 대화의 흐름에 따라 자연스럽게 흘러가는 편이다.</p>
+  <p>게임은 정해놓고 하기도 하지만 게임 역시 본인의 기분에 따라 이것저것 해보는 식이며 주로 플레이 하는 것은 젤다의 전설이다
+    <sup tabindex="0" onclick="scrollToFootnote(1)">
+      [1]
+      <span class="footnote-tooltip">
       최근 젤다의 전설: 야생의 숨결 클리어 이후 후속작인 왕국의 눈물까지 엔딩을 보게 되어 할일이 없어졌지만 젤다의 전설 시리즈 자체가 마음에 들었는지 다음으로 플레이할 작품을 물색 중이다.
-    </span>
-  </sup>.
-</p>
-<p>이 외의 게임은 분량과 호흡이 긴 게임 보다는 그날 하루 방송 분량으로 치고 빠질수있는 게임을 선호하는 편이다. ​그래서인지 이래저래 게임 추천을 많이 받았지만 대다수가 그냥 한 두번 찍어보고 마는 수준.​ 본인 말로는 항상 계속하겠다고 하지만 꾸준히 조르지 않는 이상은<sup tabindex="0" onclick="scrollToFootnote(1)">
-    [2]
-    <span class="footnote-tooltip">
-      그렇다고 너무 조르진 말자. 방송 흐름에 방해가 될 수 있고, 자칫하다간 밴을 먹을 수도 있다.
-    </span>
-  </sup> 
+      </span>
+    </sup>.
+  </p>
+  <p>이 외의 게임은 분량과 호흡이 긴 게임 보다는 그날 하루 방송 분량으로 치고 빠질수있는 게임을 선호하는 편이다. ​그래서인지 이래저래 게임 추천을 많이 받았지만 대다수가 그냥 한 두번 찍어보고 마는 수준.​ 본인 말로는 항상 계속하겠다고 하지만 꾸준히 조르지 않는 이상은<sup tabindex="0" onclick="scrollToFootnote(1)">
+      [2]
+      <span class="footnote-tooltip">
+        그렇다고 너무 조르진 말자. 방송 흐름에 방해가 될 수 있고, 자칫하다간 밴을 먹을 수도 있다.
+      </span>
+    </sup> 
 안한다고 보면 된다. 그래도 본인이 흥미가 생기고 재미를 느낀 게임이라면 분량이 길어도 웬만해서는 엔딩을 보는 편이다.</p>
-<p>또 다른 방송의 핵심컨텐츠가 있다면 바로 카페 탐방 되시겠다. 개인적으로 네이버 카페를 운영중이며 일주일 단위로 카페에 올라온 다양한 주제의 글들을 방송에서 다 같이 읽는다. 다만 분량이 상당한 까닭에 상당한 시간이 소요되는데, 만약 모종의 이유로 카페탐방 컨텐츠가 연기되어 게시글들이 쌓이게 되면 다음날 마저 카페 탐방을 이어서 하기도 한다. 이래저래 필요한 지식과 잡지식들을 습득하여 다음에도 기억하는 모습을 보여주지만 조금이라도 어려운 내용이다 싶으면 한귀로 흘려버린다 카페탐방 컨텐츠가 모종의 이유로 밀려서 쌓이게 되어 분량이 하루만에 끝낼 감당이 안 된다면 다음날 나눠서 마저 읽기도 한다. 간단한 잡지식들을 습득하면 다음에도 기억하는 모습을 보여주지만 조금이라도 어려운 내용이라면 얄짤 없이 기억을 못하는 안습한 지능을 보여준다.</p>
-<p>또한 <del style="color: gray;">전</del>현직 치위생사라서 치아에 대한 지식이 굉장히 해박하다. 평소에는 기본 상식조차 모자란 모습을 많이 보여주나 치아에 대한 질문이라면 상당히 자세하고 구체적이게 설명하는 모습을 볼 수 있는데, 확실히 치아에서만큼은 전문가라는 느낌을 준다. ​그래서인지 치위생에 관한 질문을 많이 받는편인데도 귀찮아하지 않고 늘 자세하게 답해준다 이 직업병 때문인지 사람이나 , 만화 캐릭터등을 볼때는 치아부터 확인하는 버릇이 있다.</p>
-<p>공포 컨텐츠도 가끔 진행하는 편인데 공포에 관해선 면역력이 부족하기 때문에 늘 힘들어한다. 그래도 흥미가 없는 편은 아닌지, 공포 게임도 시키면 곧잘 하는편이고 공포썰 듣는 것도 좋아한다. ​하지만 잔인한 컨텐츠에 대해선 면역이 제로를 넘어 마이너스인지라 내장이 튀어나오는 등의 잔인한 장면은 아예 못 보고 어쩌다 보게되면 구역질을 하는 수준이며 조금이라도 피가 튀기는것을 보면 힘들어한다. <del style="color: gray;">이런데도 본인 왈 의외로 겁이 없다고 했다<sup tabindex="0" onclick="scrollToFootnote(1)">
-    [3]
-    <span class="footnote-tooltip">
-      다만 이는 비현실적인 그래픽 (뽀삐 플레이 타임과 같은 류)에 한정하며, 실사체로 가는 순간 얄짤없다.
-    </span>
-  </sup> .</del></p>
-<p>방송에서 가장 중요하게 지향하는점은 바로 편안한 분위기인데 처음 오는 사람이라도 언제 어느 때든 불편한 것 없이 편안하게 감상할 수 있는 것을 목표로 한다. 본인 또한 채팅을 최대한 넘겨지는것 없이 하나하나 다 확인해줄려고 노력하는 편이다.</p>
+  <p>또 다른 방송의 핵심컨텐츠가 있다면 바로 카페 탐방 되시겠다. 개인적으로 네이버 카페를 운영중이며 일주일 단위로 카페에 올라온 다양한 주제의 글들을 방송에서 다 같이 읽는다. 다만 분량이 상당한 까닭에 상당한 시간이 소요되는데, 만약 모종의 이유로 카페탐방 컨텐츠가 연기되어 게시글들이 쌓이게 되면 다음날 마저 카페 탐방을 이어서 하기도 한다. 이래저래 필요한 지식과 잡지식들을 습득하여 다음에도 기억하는 모습을 보여주지만 조금이라도 어려운 내용이다 싶으면 한귀로 흘려버린다 카페탐방 컨텐츠가 모종의 이유로 밀려서 쌓이게 되어 분량이 하루만에 끝낼 감당이 안 된다면 다음날 나눠서 마저 읽기도 한다. 간단한 잡지식들을 습득하면 다음에도 기억하는 모습을 보여주지만 조금이라도 어려운 내용이라면 얄짤 없이 기억을 못하는 안습한 지능을 보여준다.</p>
+  <p>또한 <del style="color: gray;">전</del>현직 치위생사라서 치아에 대한 지식이 굉장히 해박하다. 평소에는 기본 상식조차 모자란 모습을 많이 보여주나 치아에 대한 질문이라면 상당히 자세하고 구체적이게 설명하는 모습을 볼 수 있는데, 확실히 치아에서만큼은 전문가라는 느낌을 준다. ​그래서인지 치위생에 관한 질문을 많이 받는편인데도 귀찮아하지 않고 늘 자세하게 답해준다 이 직업병 때문인지 사람이나 , 만화 캐릭터등을 볼때는 치아부터 확인하는 버릇이 있다.</p>
+  <p>공포 컨텐츠도 가끔 진행하는 편인데 공포에 관해선 면역력이 부족하기 때문에 늘 힘들어한다. 그래도 흥미가 없는 편은 아닌지, 공포 게임도 시키면 곧잘 하는편이고 공포썰 듣는 것도 좋아한다. ​하지만 잔인한 컨텐츠에 대해선 면역이 제로를 넘어 마이너스인지라 내장이 튀어나오는 등의 잔인한 장면은 아예 못 보고 어쩌다 보게되면 구역질을 하는 수준이며 조금이라도 피가 튀기는것을 보면 힘들어한다. <del style="color: gray;">이런데도 본인 왈 의외로 겁이 없다고 했다<sup tabindex="0" onclick="scrollToFootnote(1)">
+      [3]
+      <span class="footnote-tooltip">
+        다만 이는 비현실적인 그래픽 (뽀삐 플레이 타임과 같은 류)에 한정하며, 실사체로 가는 순간 얄짤없다.
+      </span>
+    </sup> .</del></p>
+  <p>방송에서 가장 중요하게 지향하는점은 바로 편안한 분위기인데 처음 오는 사람이라도 언제 어느 때든 불편한 것 없이 편안하게 감상할 수 있는 것을 목표로 한다. 본인 또한 채팅을 최대한 넘겨지는것 없이 하나하나 다 확인해줄려고 노력하는 편이다.</p>
 
-<h2 id="meme"><a class="link" href="#list">3.</a> 밈</h2>
-<p><strong>대머리</strong>: 트위치 시절, 김엔프가 시청자들에게 정수리를 보여줬고, 그 때 누군가가 대머리라고 놀리기 시작한 것이 지금껏 이어져오고 있다. 김엔프를 대표하는 명실상부한 밈이라고 할 수 있다.</p>
-<p><strong>오목가슴</strong>: 한 시청자가 카페에 올린 <a href="https://cafe.naver.com/enff/2616">게시글</a>을 시작으로 빠르게 퍼져나간 밈. 탈모 밈에 비해 역사는 짧으나 임팩트는 비교적 강했는지, 현재까지도 놀림받는 중이다.</p>
-<p>김엔프를 놀리는 것은 언제나 환영이지만, 도를 넘는 놀림은 자제하도록 하자. 김엔프가 비록 건장한 성인 남성이라도 상처는 잘 받는지라 적당하게 놀려주는 것이 중요하다.</p>
+  <h2 id="meme"><a class="link" href="#list">3.</a> 밈</h2>
+  <ul>
+    <li><strong>대머리</strong>: 트위치 시절, 김엔프가 시청자들에게 정수리를 보여줬고, 그 때 누군가가 대머리라고 놀리기 시작한 것이 지금껏 이어져오고 있다. 김엔프를 대표하는 명실상부한 밈이라고 할 수 있다.</li>
+    <li><strong>오목가슴</strong>: 한 시청자가 카페에 올린 <a href="https://cafe.naver.com/enff/2616" target="_blank" rel="noopener noreferrer"><strong>게시글</strong></a>을 시작으로 빠르게 퍼져나간 밈. 탈모 밈에 비해 역사는 짧으나 임팩트는 비교적 강했는지, 현재까지도 놀림받는 중이다.</li>
+  </ul>
+  <p>김엔프를 놀리는 것은 언제나 환영이지만, 도를 넘는 놀림은 자제하도록 하자. 김엔프가 비록 건장한 성인 남성이라도 상처는 잘 받는지라 적당하게 놀려주는 것이 중요하다.</p>
 
-<h2 id="history"><a class="link" href="#list">4.</a> 방송 역사</h2>
-<p>2019년 경, 혜성처럼 트위치에 데뷔한 김엔프는 한창 주가가 상향세를 향해 달리던 도중, 뜬금없이 휴방을 때리고선 2024년 초에 치지직으로 재데뷔를 거쳐 현재까진 별다른 이슈 없이 방송을 이어오고 있다.</p>
+  <h2 id="history"><a class="link" href="#list">4.</a> 방송 역사</h2>
+  <p>2019년 경, 혜성처럼 트위치에 데뷔한 김엔프는 한창 주가가 상향세를 향해 달리던 도중, 뜬금없이 휴방을 때리고선 2024년 초에 치지직으로 재데뷔를 거쳐 현재까진 별다른 이슈 없이 방송을 이어오고 있다.</p>
 
-<h2 id="controversy"><a class="link" href="#list">5.</a> 논란 및 사건사고</h2>
-<p>2020년 경, 본인의 멘탈 문제로 인하여 시청자들에게 별다른 공지도 없이 사라진 적이 있다. 그 당시에 시청자들과의 소통창구가 없었던 것도 아니였다는 걸 생각해보면 상당히 괘씸한 점이다. 이후 2024년에 복귀를 진행할 때에 사과하였으나, 종종 오목이들이 놀려먹을 때에 쓰곤 한다.</p>
+  <h2 id="controversy"><a class="link" href="#list">5.</a> 논란 및 사건사고</h2>
+  <ul>
+    <li><strong>공백의 4년</strong>: 2020년 경, 본인의 멘탈 문제로 인하여 시청자들에게 별다른 공지도 없이 사라진 적이 있다. 그 당시에 시청자들과의 소통창구가 없었던 것도 아니였다는 걸 생각해보면 상당히 괘씸한 점이다. 이후 2024년에 복귀를 진행할 때에 사과하였으나, 종종 오목이들이 놀려먹을 때에 쓰곤 한다.</li>
+    <li><strong>공주 가스라이팅</strong>: 지속적으로 시청자들에게 본인이 공주라며 가스라이을 시도중이다. 오목이들의 반발이 있었으나, 그 의견은 항상 묵살되어 2025년 현재까지도 본인이 공주라고 믿어 의심치 않는 모양이다. <del style="color: gray;">곧 30세가 되어가는 성인 남성이 저러는 꼴을 보면 절로 한숨이 나온다.</del></li>
+  </ul>
 
-<h2 id="ps"><a class="link" href="#list">6.</a> 여담</h2>
-<p>평지에서 쓰레기를 버리러 가던 중 다리를 부숴(!!) 무려 한 달이 넘는 기간동안 휴방을 한 적이 있다. 물론 돌아왔을 때의 오목이의 빈정거림은 덤.</p>
+  <h2 id="ps"><a class="link" href="#list">6.</a> 여담</h2>
+  <p>평지에서 쓰레기를 버리러 가던 중 다리를 부숴(!!) 무려 한 달이 넘는 기간동안 휴방을 한 적이 있다. 물론 돌아왔을 때의 오목이의 빈정거림은 덤.</p>
 
-<hr>
+  <hr>
 
-<section id="footnotes" aria-label="주석">
-  <h3>주석</h3>
-  <ol>
-    <li id="footnote-1">
-      최근 젤다의 전설: 야생의 숨결 클리어 이후 후속작인 왕국의 눈물까지 엔딩을 보게 되어 할일이 없어졌지만 젤다의 전설 시리즈 자체가 마음에 들었는지 다음으로 플레이할 작품을 물색 중이다.
-    <li id="footnote-2">
-      그렇다고 너무 조르진 말자. 방송 흐름에 방해가 될 수 있고, 자칫하다간 밴을 먹을 수도 있다.
-    <li id="footnote-3">
-      다만 이는 비현실적인 그래픽 (뽀삐 플레이 타임과 같은 류)에 한정하며, 실사체로 가는 순간 얄짤없다.
+    <section id="footnotes" aria-label="주석">
+      <h3>주석</h3>
+      <ol>
+        <li id="footnote-1">
+          최근 젤다의 전설: 야생의 숨결 클리어 이후 후속작인 왕국의 눈물까지 엔딩을 보게 됨.
+        </li>
+        <li id="footnote-2">
+          그렇다고 너무 조르진 말자. 방송 흐름에 방해될 수 있고, 자칫하면 밴을 먹을 수 있다.
+        </li>
+        <li id="footnote-3">
+          비현실적 그래픽(뽀삐 플레이타임 등)에 한정. 실사체는 못 본다.
+        </li>
+      </ol>
+    </section>
+  </div>
 
-    </li>
-  </ol>
-</section>
-
-<script>
-  function scrollToFootnote(num) {
-    const el = document.getElementById('footnote-' + num);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  <script>
+    function scrollToFootnote(num) {
+      const el = document.getElementById('footnote-' + num);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const tooltips = document.querySelectorAll('.footnote-tooltip');
-    tooltips.forEach(tooltip => {
-      tooltip.addEventListener('click', (e) => {
-        e.stopPropagation(); // 툴팁 안 클릭해도 아래로 안넘어가게
+    document.addEventListener('DOMContentLoaded', () => {
+      const tooltips = document.querySelectorAll('.footnote-tooltip');
+      tooltips.forEach(tooltip => {
+        tooltip.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
       });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
