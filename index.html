@@ -105,15 +105,13 @@
       font-size: 0.5em;
     }
 
-    /* 주석 번호 스타일 */
     sup {
       position: relative;
       cursor: pointer;
       user-select: none;
-      color: #d63384; /* 주석 번호 색상 */
+      color: #d63384;
     }
 
-    /* 주석 툴팁 기본 숨김 */
     .footnote-tooltip {
       position: absolute;
       bottom: 125%;
@@ -131,11 +129,9 @@
       z-index: 1000;
     }
 
-    /* 툴팁 활성화 시 보이도록 */
     sup.active .footnote-tooltip {
       display: block;
     }
-    /* PC 등 마우스 호버 가능한 환경에서 호버 시 툴팁 보이기 */
     @media (hover: hover) {
       sup:hover .footnote-tooltip {
         display: block !important;
@@ -165,7 +161,6 @@
   }
 }
 
-/* PC 환경에서 content-wrapper 너비 제한 */
 @media (min-width: 769px) {
   .content-wrapper {
     max-width: 900px;
@@ -292,19 +287,16 @@
         sup.addEventListener('click', (e) => {
           e.stopPropagation();
 
-          // 다른 sup에 붙은 active 클래스 제거
           footnotes.forEach(other => {
             if (other !== sup) {
               other.classList.remove('active');
             }
           });
 
-          // 클릭한 sup에 active 토글
           sup.classList.toggle('active');
         });
       });
 
-      // 페이지 다른 곳 클릭하면 모든 툴팁 닫기
       document.body.addEventListener('click', () => {
         footnotes.forEach(sup => {
           sup.classList.remove('active');
